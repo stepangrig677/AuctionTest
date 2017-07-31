@@ -1,0 +1,99 @@
+﻿@using IdentityTour.Models
+@model HomeModel
+@{
+    ViewBag.Title = "Аукцион";
+}
+
+@Styles.Render("~/Content/Site.css")
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default sections">
+            <div class="panel-heading">Разделы</div>
+            <div class="panel-body">
+                @foreach (var x in Model.Categories)
+                {
+                    <div class="menu">
+                        <span class="title">@x.Key</span>
+                        <ul>
+                            @foreach (var y in x.Value)
+                            {
+                                <li><a class="menu-item" href="#">@y</a></li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">Лоты</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div id="imaginary_container">
+                            <div class="input-group stylish-input-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <span class="input-group-addon">
+                                    <button type="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Сортировать
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Начальная цена</a><br>
+                                <a class="dropdown-item" href="#">Текущая цена</a><br>
+                                <a class="dropdown-item" href="#">Время начала торгов</a><br>
+                                <a class="dropdown-item" href="#">Время окончания торгов</a><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                @foreach (var x in Model.Lots)
+                {
+                    <div class="media">
+                        <a href="#" class="pull-left">
+                            <img width="64" height="64"  src="~/Content/images/@x.Image" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                @x.Name
+                            </h4>
+                            <p>@x.Description</p>
+                        </div>
+                    </div>
+                }
+
+                <ul class="pagination">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">></a></li>
+                    <li><a href="#">>></a></li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<hr />
+
+@section Scripts {
+    <script> $('.menu').click(function () { this.classList.toggle('open') })</script>
+}

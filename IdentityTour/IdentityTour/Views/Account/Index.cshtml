@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewBag.Title = "Личный кабинет";
+}
+
+
+<div class="row">
+
+    <!-- Правая часть -->
+    <div class="col-md-4 col-lg-4">
+
+
+        <div class="panel panel-default">
+            <ul class="" id="yw1">
+                <li>
+                    <span>Покупки</span>
+                    <ul>
+                        <li><a href="#"><span>Активные ставки</span> </a></li>
+                        <li><a href="#"><span>Не выигранные</span> </a></li>
+                        <li><a href="#"><span>История покупок</span> </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Продажи</span>
+                    <ul>
+                        <li><a href="#"><span>Активные лоты</span> </a></li>
+                        <li><a href="#"><span>Непроданные лоты</span> </a></li>
+                        <li><a href="#"><span>Планируемые лоты</span> </a></li>
+                        <li><a href="#"><span>Проданные лоты</span> </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Избранное</span>
+                    <ul>
+                        <li><a href="#"><span>Избранные лоты</span> </a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Отзывы</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- Левая часть -->
+    <div class="col-md-8 col-lg-8">
+
+
+
+        <div class="row">
+            <div class="col-lg-6">
+
+                <div id="imaginary_container">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-2">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Сортировать
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Начальная цена</a><br>
+                        <a class="dropdown-item" href="#">Текущая цена</a><br>
+                        <a class="dropdown-item" href="#">Время начала торгов</a><br>
+                        <a class="dropdown-item" href="#">Время окончания торгов</a><br>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-3">
+                <div class="btn btn-success">Добавить</div>
+            </div>
+        </div>
+
+        <div class="row">
+
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Начало</th>
+                        <th>Окончание</th>
+                        <th>До завершения</th>
+                        <th>Текущая цена</th>
+                        <th> Ставка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>123</td>
+                        <td><button class="btn btn-success"> Ставка</button></td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>123</td>
+                        <td><button class="btn btn-success"> Ставка</button></td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>123</td>
+                        <td><button class="btn btn-success"> Ставка</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Начало</th>
+                        <th>Окончание</th>
+                        <th>Цена продажи</th>
+                        <th>Количество предложений</th>
+                        <th>Победитель</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>123</td>
+                        <td>Вася</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>123</td>
+                        <td>Вася</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>12.12.12</td>
+                        <td>123</td>
+                        <td>Вася</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+
+    </div>
+</div>
