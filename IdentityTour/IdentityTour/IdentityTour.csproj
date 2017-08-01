@@ -233,6 +233,7 @@
       <DependentUpon>201707311523461_UpdateLot.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountIndexModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />

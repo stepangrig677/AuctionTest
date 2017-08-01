@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using IdentityTour.Models;
+using System.Collections.Generic;
+using IdentityTour.TestDB;
 
 namespace IdentityTour.Controllers
 {
@@ -17,6 +19,7 @@ namespace IdentityTour.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private TestDbContext DB = new TestDbContext();
 
         public AccountController()
         {
@@ -57,6 +60,58 @@ namespace IdentityTour.Controllers
 
         public ActionResult Index()
         {
+            AccountIndexModel model = new AccountIndexModel();
+            model.MyOwnLots = new List<LotModel>();
+            model.CurrentLots = new List<LotModel>();
+            model.OldLots = new List<LotModel>();
+            var my_lots = DB.Lots.Where(a => a.UserID == int.Parse(User.Identity.GetUserId())).ToList();
+            foreach (var lot in my_lots)
+            {
+                model.MyOwnLots.Add(new LotModel()
+                {
+                    StartTime = lot.StartTime,
+                    EndTime = lot.EndTime,
+                    StartPrice = lot.StartPrice,
+                    EndPrice = lot.EndPrice,
+                    Name = lot.Name,
+                    Description = lot.Description,
+                    Images = lot.Images,
+                    Status = lot.Status
+                });
+            }
+            var lots = DB.Lots.ToList();
+            foreach (var lot in lots)
+            {
+                if (lot.EndTime > System.DateTime.Now)
+                {
+                    model.CurrentLots.Add(new LotModel()
+                    {
+                        StartTime = lot.StartTime,
+                        EndTime = lot.EndTime,
+                        StartPrice = lot.StartPrice,
+                        EndPrice = lot.EndPrice,
+                        Name = lot.Name,
+                        Description = lot.Description,
+                        Images = lot.Images,
+                        Status = lot.Status
+                    });
+                }
+                else
+                {
+                    model.OldLots.Add(new LotModel()
+                    {
+                        StartTime = lot.StartTime,
+                        EndTime = lot.EndTime,
+                        StartPrice = lot.StartPrice,
+                        EndPrice = lot.EndPrice,
+                        Name = lot.Name,
+                        Description = lot.Description,
+                        Images = lot.Images,
+                        Status = lot.Status
+                    });
+                }
+
+            }
             return View();
         }
         // GET: /Account/Login
