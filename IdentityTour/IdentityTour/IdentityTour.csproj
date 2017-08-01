@@ -211,6 +211,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Hubs\PriceHub.cs" />
     <Compile Include="Migrations\201707301238312_Start.cs" />
     <Compile Include="Migrations\201707301238312_Start.Designer.cs">
