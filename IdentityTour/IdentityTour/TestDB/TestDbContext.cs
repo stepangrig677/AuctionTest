@@ -16,6 +16,7 @@ namespace IdentityTour.TestDB
         public DbSet<Category> Categories { get; set; }
         public DbSet<Lot> Lots { get; set; }
         public DbSet<Betting> Bettings { get; set; }
+        public DbSet<Participate> Participates { get; set; }
     }
     
 }

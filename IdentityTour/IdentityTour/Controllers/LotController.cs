@@ -21,6 +21,7 @@ namespace IdentityTour.Controllers
             var lot = DB.Lots.SingleOrDefault(a => a.ID == id);
             var model = new LotModel()
             {
+                ID=lot.ID,
                 StartTime = lot.StartTime,
                 EndTime = lot.EndTime,
                 StartPrice = lot.StartPrice,

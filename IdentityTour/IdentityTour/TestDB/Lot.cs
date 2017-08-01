@@ -13,7 +13,7 @@ namespace IdentityTour.TestDB
         public int ID { get; set; }
 
         public int? CategoryID { get; set; }
-        public int? UserID { get; set; }
+        public string UserID { get; set; }
         public DateTime? Created { get; set; }
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }

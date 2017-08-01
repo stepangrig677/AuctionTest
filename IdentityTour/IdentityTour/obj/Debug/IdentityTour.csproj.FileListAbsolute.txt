@@ -182,3 +182,6 @@ C:\Users\stepa\Source\Repos\AuctionTest2\IdentityTour\IdentityTour\obj\Debug\Ide
 C:\Users\stepa\Source\Repos\AuctionTest2\IdentityTour\IdentityTour\obj\Debug\IdentityTour.csproj.GenerateResource.Cache
 C:\Users\stepa\Source\Repos\AuctionTest2\IdentityTour\IdentityTour\obj\Debug\IdentityTour.dll
 C:\Users\stepa\Source\Repos\AuctionTest2\IdentityTour\IdentityTour\obj\Debug\IdentityTour.pdb
+C:\Users\stepa\Source\Repos\AuctionTest2\IdentityTour\IdentityTour\obj\Debug\IdentityTour.Migrations.Participate.resources
+C:\Users\stepa\Source\Repos\AuctionTest2\IdentityTour\IdentityTour\obj\Debug\IdentityTour.Migrations.Participate1.resources
+C:\Users\stepa\Source\Repos\AuctionTest2\IdentityTour\IdentityTour\obj\Debug\IdentityTour.Migrations.UserId.resources

@@ -7,6 +7,7 @@ namespace IdentityTour.Models
 {
     public class LotModel
     {
+        public int? ID { get; set; }
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
         public decimal? StartPrice { get; set; }

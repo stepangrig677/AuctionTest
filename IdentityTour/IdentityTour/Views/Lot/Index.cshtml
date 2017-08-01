@@ -3,60 +3,59 @@
 @{
     ViewBag.Title = "Лот";
 }
-
-
-<div class="row">
-    <!-- Картинки-->
-    <div class="col-md-8">
-        <div id="myCarousel" class="carousel slide">
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img style='float: none;' src='~/Content/images/@Model.Images.Split(',')[0]'>
-                </div>
-                @for (int i = 1; i < Model.Images.Split(',').Length; i++)
-                {
-                    <div class="item">
-                        <img id='image@(i)' class='image' src='~/Content/images/@Model.Images.Split(',')[i]'>
+<div class="container">
+    <div class="row">
+        <!-- Картинки-->
+        <div class="col-md-8">
+            <div id="myCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img style='float: none;' src='~/Content/images/@Model.Images.Split(',')[0]'>
                     </div>
-                }
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                    @for (int i = 1; i < Model.Images.Split(',').Length; i++)
+                    {
+                        <div class="item">
+                            <img id='image@(i)' class='image' src='~/Content/images/@Model.Images.Split(',')[i]'>
+                        </div>
+                    }
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <!-- Текстовые поля-->
 
-    <!-- Текстовые поля-->
-
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">@Model.Name</div>
-            <div class="panel-body">
-                <table class="table">
-                    <tr>
-                        <td><h4> Стартовая цена(руб.)</h4></td>
-                        <td>@Model.StartPrice</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Время начала торгов: </h4></td>
-                        <td>@Model.StartTime</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Время окончания торгов: </h4></td>
-                        <td>@Model.EndTime</td>
-                    </tr>
-                </table>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">@Model.Name</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <td><h4> Стартовая цена(руб.)</h4></td>
+                            <td>@Model.StartPrice</td>
+                        </tr>
+                        <tr>
+                            <td><h4>Время начала торгов: </h4></td>
+                            <td>@Model.StartTime</td>
+                        </tr>
+                        <tr>
+                            <td><h4>Время окончания торгов: </h4></td>
+                            <td>@Model.EndTime</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
+            <a href="/account?lot_id=@(Model.ID)" class="btn btn-success">Учавствовать в аукционе</a>
         </div>
-        <a href="/account" class="btn btn-success">Учавствовать в аукционе</a>
+    </div>
+
+    <div class="row">
+        <h1 class="text-center">@Model.Name</h1>
+        <span>@Model.Description</span>
     </div>
 </div>
-
-<div class="row">
-    <h1 class="text-center">@Model.Name</h1>
-    <span>@Model.Description</span>
-</div>
-
 @section Scripts {
     @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
     @Scripts.Render("~/Scripts/bootstrap.min.js")
