@@ -15,11 +15,11 @@
                 @foreach (var x in Model.Categories)
                 {
                     <div class="menu">
-                        <span class="title">@x.Key</span>
+                        <span class="title">@x.Name</span>
                         <ul>
-                            @foreach (var y in x.Value)
+                            @foreach (var y in x.Categories)
                             {
-                                <li><a class="menu-item" href="#">@y</a></li>
+                                <li><a class="menu-item" href="#">@y.Name</a></li>
                             }
                         </ul>
                     </div>
@@ -60,22 +60,24 @@
                     </div>
                 </div>
                 <hr />
-
-                @foreach (var x in Model.Lots)
-                {
-                    <div class="media">
-                        <a href="#" class="pull-left">
-                            <img width="64" height="64"  src="~/Content/images/@x.Image" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">
-                                @x.Name
-                            </h4>
-                            <p>@x.Description</p>
+                <div class="row">
+                    @foreach (var x in Model.Lots)
+                    {
+                        <div class="col-lg-6 col-md-6">
+                            <div class="media">
+                                <a href="/lot?id=@x.ID" class="pull-left">
+                                    <img width="64" height="64" src="~/Content/images/@x.Image" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        @x.Name
+                                    </h4>
+                                    <p>@x.Description.Substring(0,40) ...</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                }
-
+                    }
+                </div>
                 <ul class="pagination">
                     <li><a href="#">1</a></li>
                     <li><a href="#">2</a></li>

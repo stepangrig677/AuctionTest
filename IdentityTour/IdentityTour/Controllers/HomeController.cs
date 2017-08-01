@@ -18,25 +18,34 @@ namespace IdentityTour.Controllers
         public ActionResult Index()
         {
             var model = new HomeModel();
-            model.Categories = new Dictionary<string, List<string>>();
+            model.Categories = new List<Models.Category>();
             var categories = DB.Categories.ToList();
 
             foreach (var x in categories)
             {
-                if (x.ParrentID == null) model.Categories.Add(x.Name, new List<string>());
+                if (x.ParrentID == null)
+                {
+                    var category = new Models.Category() { Name = x.Name, ID = x.ID, ParrentID = x.ParrentID };
+                    category.Categories= new List<Models.Category>();
+                    model.Categories.Add(category);
+                }
             }
-
             foreach (var x in categories)
             {
-                if (x.ParrentID != null) model.Categories[categories.Where(a=>a.ID==x.ParrentID).Select(a=>a.Name).First()].Add(x.Name);
+                if (x.ParrentID != null)
+                {
+                    var parent = model.Categories.Where(a => a.ID == x.ParrentID).First();
+                    parent.Categories.Add(new Models.Category() { Name = x.Name, ID = x.ID, ParrentID = x.ParrentID });
+                }
             }
 
-            var lots= DB.Lots.ToList();
+
+            var lots= DB.Lots.ToList().Take(6); ;
             model.Lots = new List<LotSmallModel>();
 
             foreach (var x in lots)
             {
-                model.Lots.Add(new LotSmallModel() {Name=x.Name, Description=x.Description, Image = x.Images });
+                model.Lots.Add(new LotSmallModel() {ID=x.ID, Name=x.Name, Description=x.Description, Image = x.Images.Split(',')[0] });
             }
 
             return View(model);
