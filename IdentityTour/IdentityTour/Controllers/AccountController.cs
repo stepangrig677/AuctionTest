@@ -30,7 +30,7 @@ namespace IdentityTour.Controllers
         public ActionResult Index(int? lot_id)
         {
             var userid = User.Identity.GetUserId();
-            if (DB.Participates.SingleOrDefault(a => a.UserID == userid)==null)
+            if (DB.Participates.Where(a => a.UserID == userid).ToList().Count==0)
             {
                 Participate participate = new Participate() { UserID = userid, LotID = lot_id };
                 DB.Participates.Add(participate);
@@ -92,7 +92,7 @@ namespace IdentityTour.Controllers
                 }
 
             }
-            return View();
+            return View(model);
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
